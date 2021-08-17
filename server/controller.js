@@ -27,7 +27,7 @@ module.exports = {
         let {id} = req.params
         let {type} = req.body
         let index = houses.findIndex(e => e.id === +id)
-        if(type === 'minus' && houses[index].price > 10000){
+        if(type === 'minus' && (houses[index].price - 10000) < 10000){
             res.status(400).send('Unfortunately, houses cannot be free.')
         }else if(type === 'minus'){
             houses[index].price -= 10000
