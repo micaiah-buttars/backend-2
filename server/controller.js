@@ -7,8 +7,8 @@ module.exports = {
     },
     deleteHouse:  (req, res) => {
         let {id} = req.params
-        let index = movies.findIndex(elem => elem.id === +id)
-        movies.splice(index, 1)
+        let index = houses.findIndex(elem => elem.id === +id)
+        houses.splice(index, 1)
         res.status(200).send(houses)
     },
     createHouse: (req, res) => {
@@ -16,7 +16,7 @@ module.exports = {
         let house = {
             id: houseID,
             address,
-            price,
+            price: +price,
             imageURL
         }
         houses.push(house)
